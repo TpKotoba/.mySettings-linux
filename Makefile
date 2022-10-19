@@ -1,22 +1,21 @@
 # Makefile for mySettings
 
-mySettingsPATH = ~/.mySettings
-logFILE = $(mySettingsPATH)/.archive/.log
+logFILE = .archive/.log
 
-vimrc_linkedFILE = $(mySettingsPATH)/.vimrc
-gitconfig_linkedFILE = $(mySettingsPATH)/.gitconfig
+vimrc_linkedFILE = .vimrc
+gitconfig_linkedFILE = .gitconfig
 
-bashrc_appendFILE = $(mySettingsPATH)/.bashrc_append.sh
-bashrc_backupFILE = $(mySettingsPATH)/.archive/.bashrc.old
+bashrc_appendFILE = .bashrc_append
+bashrc_backupFILE = .archive/.bashrc.old
 
 GITCONFIG_INSTALL=INSTALL     gitconfig
-gitconfig.install: ./.gitconfig
+gitconfig.install: .gitconfig
 	@echo "$(GITCONFIG_INSTALL)"
 	@ln -sf $(gitconfig_linkedFILE) ~/.gitconfig
 	@echo $(shell date) $(GITCONFIG_INSTALL) >> $(logFILE)
 
 VIMRC_INSTALL=INSTALL     vimrc
-vimrc.install: ./.vimrc
+vimrc.install: .vimrc
 	@echo "$(VIMRC_INSTALL)"
 	@ln -sf $(vimrc_linkedFILE) ~/.vimrc
 	@mkdir -p ~/.cache/vim
@@ -25,7 +24,7 @@ vimrc.install: ./.vimrc
 
 BASHRC_ARCHIVE=ARCHIVE     bashrc
 BASHRC_INSTALL=INSTALL     bashrc
-bashrc.install: ./.bashrc_append.sh
+bashrc.install: .bashrc_append
 	@echo "$(BASHRC_ARCHIVE)"
 	@cp ~/.bashrc $(bashrc_backupFILE)
 	@echo $(shell date) $(BASHRC_ARCHIVE) >> $(logFILE)
