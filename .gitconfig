@@ -1,0 +1,7 @@
+[user]
+	email = tpkotoba@gmail.com
+	name  = TpKotoba
+[core]
+	editor = vim
+[alias]
+	adog = log --all --decorate --oneline --graph
