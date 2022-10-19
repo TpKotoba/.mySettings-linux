@@ -56,6 +56,10 @@ if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
+# mkdir then cd
+mcd () {
+	mkdir -p "$@" && eval cd "\"\$$#\"";
+}
 
 # extract archives
 extract () {
@@ -86,3 +90,4 @@ extract () {
 export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
+
