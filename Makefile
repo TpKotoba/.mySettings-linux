@@ -11,13 +11,13 @@ bashrc_backupFILE = .archive/.bashrc.old
 GITCONFIG_INSTALL=INSTALL     gitconfig
 gitconfig.install: .gitconfig
 	@echo "$(GITCONFIG_INSTALL)"
-	@ln -sf $(gitconfig_linkedFILE) ~/.gitconfig
+	@ln -sf $(shell pwd)/$(gitconfig_linkedFILE) ~/.gitconfig
 	@echo $(shell date) $(GITCONFIG_INSTALL) >> $(logFILE)
 
 VIMRC_INSTALL=INSTALL     vimrc
 vimrc.install: .vimrc
 	@echo "$(VIMRC_INSTALL)"
-	@ln -sf $(vimrc_linkedFILE) ~/.vimrc
+	@ln -sf $(shell pwd)/$(vimrc_linkedFILE) ~/.vimrc
 	@mkdir -p ~/.cache/vim
 	@echo $(shell date) $(VIMRC_INSTALL) >> $(logFILE)
 
