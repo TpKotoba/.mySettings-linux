@@ -19,6 +19,7 @@ VIMRC_INSTALL=INSTALL     vimrc
 vimrc.install: ./.vimrc
 	@echo "$(VIMRC_INSTALL)"
 	@ln -sf $(vimrc_linkedFILE) ~/.vimrc
+	@mkdir -p ~/.cache/vim
 	@echo $(shell date) $(VIMRC_INSTALL) >> $(logFILE)
 
 
