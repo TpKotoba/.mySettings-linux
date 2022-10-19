@@ -30,7 +30,7 @@ bashrc.install: .bashrc_append
 	@echo $(shell date) $(BASHRC_ARCHIVE) >> $(logFILE)
 
 	@echo "$(BASHRC_INSTALL)"
-	@echo "\n# $(bashrc_appendFILE) \n\nif [ -f $(bashrc_appendFILE) ]; then\n\t. $(bashrc_appendFILE)\nfi" >> ~/.bashrc
+	@echo "\n# $(bashrc_appendFILE) \n\nif [ -f $(shell pwd)/$(bashrc_appendFILE) ]; then\n\t. $(shell pwd)/$(bashrc_appendFILE)\nfi" >> ~/.bashrc
 	@echo $(shell date) $(BASHRC_INSTALL) >> $(logFILE)
 
 BASHRC_UNINSTALL=RECOVER     bashrc
