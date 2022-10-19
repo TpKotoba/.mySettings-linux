@@ -81,3 +81,8 @@ extract () {
 		notfile_error $1
 	fi
 }
+
+# fcitx5
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
